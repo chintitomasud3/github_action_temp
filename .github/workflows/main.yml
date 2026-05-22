@@ -36,7 +36,19 @@ jobs:
             cd /tmp/system_frontend_react
 
             # ৪. প্রজেক্টের ডিপেন্ডেন্সি ইনস্টল এবং বিল্ড করা
-            pwd
+            npm install --production
+            npm install vite
+            npm run build
+
+            # ৫. বিল্ড হওয়া ফাইলগুলো আসল ওয়েব ডিরেক্টরিতে (যেমন Nginx এর পাথে) কপি করা
+            # (React অ্যাপ বিল্ড হলে সাধারণত dist অথবা build ফোল্ডার তৈরি হয়)
+            sudo chown -R ubuntu:ubuntu /var/www/html/masud
+            sudo chmod -R 755 /var/www/html/masud
+
+            sudo cp -r dist/* /var/www/html/masud
+
+            # ৬. এনজিনেক্স রিলোড করা
+            sudo systemctl reload nginx
 
          
             
