@@ -27,13 +27,18 @@ jobs:
 
           script: |
             # ১. /tmp ফোল্ডারে পুরানো ক্লোন থাকলে তা আগে মুছে ফেলা (এরর এড়ানোর জন্য)
-            sudo rm -rf /tmp/system_frontend_react
+            # Node.js install (NodeSource)
+             curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
+             sudo apt install -y nodejs
+             sudo rm -rf /tmp/system_frontend_react
 
             # ২. গিট দিয়ে নির্দিষ্ট রেপোজিটরি /tmp ফোল্ডারে ডাউনলোড করা
-            git clone https://github.com/chintitomasud3/system_frontend_react.git /tmp/system_frontend_react
+             git clone https://github.com/chintitomasud3/system_frontend_react.git /tmp/system_frontend_react
 
             # ৩. ডাউনলোড হওয়া ফোল্ডারে প্রবেশ করা
             cd /tmp/system_frontend_react
+
+            
 
             # ৪. প্রজেক্টের ডিপেন্ডেন্সি ইনস্টল এবং বিল্ড করা
             npm install --production
