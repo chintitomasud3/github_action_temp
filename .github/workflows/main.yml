@@ -25,7 +25,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
 
-         script: |
+          script: |
             # ১. /tmp ফোল্ডারে পুরানো ক্লোন থাকলে তা আগে মুছে ফেলা (এরর এড়ানোর জন্য)
             sudo rm -rf /tmp/system_frontend_react
 
@@ -37,4 +37,6 @@ jobs:
 
             # ৪. প্রজেক্টের ডিপেন্ডেন্সি ইনস্টল এবং বিল্ড করা
             pwd
+
+         
             
